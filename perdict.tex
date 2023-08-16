@@ -1,0 +1,420 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Predict},
+  pdfauthor={Mansour haghi},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Predict}
+\author{Mansour haghi}
+\date{2023-08-16}
+
+\begin{document}
+\maketitle
+
+\hypertarget{initial-configuration}{%
+\subsection{Initial configuration}\label{initial-configuration}}
+
+In the first step, the required information has been downloaded and some
+corrections have been made in the data.
+
+\#1-) Packages required
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IscaretInstalled }\OtherTok{\textless{}{-}} \FunctionTok{require}\NormalTok{(}\StringTok{"caret"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: caret
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\NormalTok{IscaretInstalled)\{}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"caret"}\NormalTok{)}
+  \FunctionTok{library}\NormalTok{(}\StringTok{"caret"}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{IsrandomForestInstalled }\OtherTok{\textless{}{-}} \FunctionTok{require}\NormalTok{(}\StringTok{"randomForest"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: randomForest
+\end{verbatim}
+
+\begin{verbatim}
+## randomForest 4.7-1.1
+\end{verbatim}
+
+\begin{verbatim}
+## Type rfNews() to see new features/changes/bug fixes.
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'randomForest'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggplot2':
+## 
+##     margin
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\NormalTok{IsrandomForestInstalled)\{}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"randomForest"}\NormalTok{)}
+  \FunctionTok{library}\NormalTok{(}\StringTok{"randomForest"}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{IsRpartInstalled }\OtherTok{\textless{}{-}} \FunctionTok{require}\NormalTok{(}\StringTok{"rpart"}\NormalTok{)        }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: rpart
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\NormalTok{IsRpartInstalled)\{}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"rpart"}\NormalTok{)}
+  \FunctionTok{library}\NormalTok{(}\StringTok{"rpart"}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{IsRpartPlotInstalled }\OtherTok{\textless{}{-}} \FunctionTok{require}\NormalTok{(}\StringTok{"rpart.plot"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: rpart.plot
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\NormalTok{IsRpartPlotInstalled)\{}
+  \FunctionTok{install.packages}\NormalTok{(}\StringTok{"rpart.plot"}\NormalTok{)}
+  \FunctionTok{library}\NormalTok{(}\StringTok{"rpart.plot"}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\#Set seed for reproducability}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\#2-) Data Processing
+
+\#Load the data and Data variables
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ trainUrl }\OtherTok{\textless{}{-}} \StringTok{"http://d396qusza40orc.cloudfront.net/predmachlearn/pml{-}training.csv"}  
+\NormalTok{testUrl }\OtherTok{\textless{}{-}} \StringTok{"http://d396qusza40orc.cloudfront.net/predmachlearn/pml{-}testing.csv"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{download-data}{%
+\section{Download data}\label{download-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{training }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\FunctionTok{url}\NormalTok{(trainUrl))}
+\NormalTok{testing }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\FunctionTok{url}\NormalTok{(testUrl))}
+\end{Highlighting}
+\end{Shaded}
+
+\#3-)Clean data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Delete missing values and Remove variables(columns) with zero number}
+\NormalTok{training1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\FunctionTok{url}\NormalTok{(trainUrl), }\AttributeTok{na.strings=}\FunctionTok{c}\NormalTok{(}\StringTok{"NA"}\NormalTok{,}\StringTok{"\#DIV/0!"}\NormalTok{,}\StringTok{""}\NormalTok{))  }
+\NormalTok{testing1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\FunctionTok{url}\NormalTok{(testUrl), }\AttributeTok{na.strings=}\FunctionTok{c}\NormalTok{(}\StringTok{"NA"}\NormalTok{,}\StringTok{"\#DIV/0!"}\NormalTok{,}\StringTok{""}\NormalTok{))}
+\NormalTok{training2}\OtherTok{\textless{}{-}}\NormalTok{training1[,}\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(training1)) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{]}
+\NormalTok{testing2 }\OtherTok{\textless{}{-}}\NormalTok{testing1[,}\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(testing1)) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{]}
+
+\CommentTok{\#Delete seven first columns that are not predictors}
+\NormalTok{training3   }\OtherTok{\textless{}{-}}\NormalTok{training2[,}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{7}\NormalTok{)]}
+\NormalTok{testing3 }\OtherTok{\textless{}{-}}\NormalTok{testing2[,}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{7}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\#4-) Cross-validation In this section split the training data in
+training (75\%) and testing (25\%) data) subsets.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SplitTrain }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(}\AttributeTok{y=}\NormalTok{training3}\SpecialCharTok{$}\NormalTok{classe, }\AttributeTok{p=}\FloatTok{0.75}\NormalTok{, }\AttributeTok{list=}\ConstantTok{FALSE}\NormalTok{)    }
+\NormalTok{STraining }\OtherTok{\textless{}{-}}\NormalTok{ training3[SplitTrain, ]}
+\NormalTok{STesting }\OtherTok{\textless{}{-}}\NormalTok{ training3[}\SpecialCharTok{{-}}\NormalTok{SplitTrain, ]}
+\FunctionTok{dim}\NormalTok{(STraining)}
+\FunctionTok{dim}\NormalTok{(STesting)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exploratory-analysis}{%
+\section{Exploratory analysis}\label{exploratory-analysis}}
+
+The variable \texttt{classe} contains 5 levels. The plot of the outcome
+variable shows the frequency of each levels in the subTraining data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(STraining}\SpecialCharTok{$}\NormalTok{classe), }\AttributeTok{col=}\StringTok{"green"}\NormalTok{, }\AttributeTok{xlab=}\StringTok{"classe\_levels"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Frequency"}\NormalTok{,}\AttributeTok{main=}\StringTok{"Levels\_classe"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{perdict_files/figure-latex/Analysis-1.pdf}
+
+\#5-) Prediction Models In order to process and predict the data, in
+this section, a decision tree and random forest are applied to the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\# Decision tree}
+\CommentTok{\#Fit model}
+\NormalTok{fit\_DT }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(classe) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{STraining, }\AttributeTok{method=}\StringTok{"class"}\NormalTok{)}
+\CommentTok{\# Perform prediction(model to predict class)}
+\NormalTok{prediction\_DT }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit\_DT, STesting, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{)}
+\CommentTok{\# Plot result}
+\FunctionTok{rpart.plot}\NormalTok{(fit\_DT, }\AttributeTok{main=}\StringTok{"Classification Tree"}\NormalTok{, }\AttributeTok{extra=}\DecValTok{0}\NormalTok{, }\AttributeTok{under=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{faclen=}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{perdict_files/figure-latex/decisiontree-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Shows the errors of the prediction algorithm with confusionMatrix in testing .}
+
+\FunctionTok{confusionMatrix}\NormalTok{(prediction\_DT, }\FunctionTok{as.factor}\NormalTok{(STesting}\SpecialCharTok{$}\NormalTok{classe))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    A    B    C    D    E
+##          A 1232  142    8   39   17
+##          B   44  598   74   59   72
+##          C   48   93  694  122  111
+##          D   44   73   63  525   51
+##          E   27   43   16   59  650
+## 
+## Overall Statistics
+##                                          
+##                Accuracy : 0.7543         
+##                  95% CI : (0.742, 0.7663)
+##     No Information Rate : 0.2845         
+##     P-Value [Acc > NIR] : < 2.2e-16      
+##                                          
+##                   Kappa : 0.689          
+##                                          
+##  Mcnemar's Test P-Value : < 2.2e-16      
+## 
+## Statistics by Class:
+## 
+##                      Class: A Class: B Class: C Class: D Class: E
+## Sensitivity            0.8832   0.6301   0.8117   0.6530   0.7214
+## Specificity            0.9413   0.9370   0.9076   0.9437   0.9638
+## Pos Pred Value         0.8567   0.7060   0.6498   0.6944   0.8176
+## Neg Pred Value         0.9530   0.9135   0.9580   0.9327   0.9389
+## Prevalence             0.2845   0.1935   0.1743   0.1639   0.1837
+## Detection Rate         0.2512   0.1219   0.1415   0.1071   0.1325
+## Detection Prevalence   0.2932   0.1727   0.2178   0.1542   0.1621
+## Balanced Accuracy      0.9122   0.7836   0.8597   0.7983   0.8426
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\# Random forest}
+\CommentTok{\#Fit model }
+\NormalTok{fit\_RF }\OtherTok{\textless{}{-}} \FunctionTok{randomForest}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(classe) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{STraining, }\AttributeTok{method=}\StringTok{"class"}\NormalTok{)}
+
+\CommentTok{\# Perform prediction(model to predict class)}
+\NormalTok{prediction\_RF }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit\_RF, STesting, }\AttributeTok{type =} \StringTok{"class"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Shows the errors of the prediction algorithm with Random Forest in testing .}
+\FunctionTok{confusionMatrix}\NormalTok{(}\FunctionTok{as.factor}\NormalTok{(STesting}\SpecialCharTok{$}\NormalTok{classe), prediction\_RF)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    A    B    C    D    E
+##          A 1395    0    0    0    0
+##          B    5  939    5    0    0
+##          C    0    7  846    2    0
+##          D    0    0   10  793    1
+##          E    0    0    0    6  895
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.9927          
+##                  95% CI : (0.9899, 0.9949)
+##     No Information Rate : 0.2855          
+##     P-Value [Acc > NIR] : < 2.2e-16       
+##                                           
+##                   Kappa : 0.9907          
+##                                           
+##  Mcnemar's Test P-Value : NA              
+## 
+## Statistics by Class:
+## 
+##                      Class: A Class: B Class: C Class: D Class: E
+## Sensitivity            0.9964   0.9926   0.9826   0.9900   0.9989
+## Specificity            1.0000   0.9975   0.9978   0.9973   0.9985
+## Pos Pred Value         1.0000   0.9895   0.9895   0.9863   0.9933
+## Neg Pred Value         0.9986   0.9982   0.9963   0.9980   0.9998
+## Prevalence             0.2855   0.1929   0.1756   0.1633   0.1827
+## Detection Rate         0.2845   0.1915   0.1725   0.1617   0.1825
+## Detection Prevalence   0.2845   0.1935   0.1743   0.1639   0.1837
+## Balanced Accuracy      0.9982   0.9950   0.9902   0.9937   0.9987
+\end{verbatim}
+
+\#6-) Conclusion
+
+\hypertarget{result}{%
+\subsection{Result}\label{result}}
+
+The confusion matrices show, that the Random Forest algorithm performens
+better than decision trees. The accuracy for the Random Forest model was
+0.9927 (95\% CI: (0.9899, 0.9949)) compared to 0.7543 (95\% CI: (0.742,
+0.7663)) for Decision Tree model. The random Forest model is choosen.
+
+\#submission Finally, in order to complete the project, in this section,
+the submitted files of the project are generated using the random forest
+algorithm on the test data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Perform prediction}
+\NormalTok{predictSubmission }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(fit\_RF, testing3, }\AttributeTok{type=}\StringTok{"class"}\NormalTok{)}
+\NormalTok{predictSubmission}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
+## Levels: A B C D E
+\end{verbatim}
+
+\end{document}
